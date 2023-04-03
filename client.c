@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 02:30:37 by akaraban          #+#    #+#             */
-/*   Updated: 2023/03/23 08:38:05 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/04/04 00:41:22 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void ft_send_bits(int pid, char byte)
         usleep(100);
     }
 }
+
 int	main(int argc, char **argv)
 {
 	int	pid;

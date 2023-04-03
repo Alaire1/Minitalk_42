@@ -6,7 +6,7 @@
 /*   By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 05:25:39 by akaraban          #+#    #+#             */
-/*   Updated: 2023/03/23 08:42:53 by akaraban         ###   ########.fr       */
+/*   Updated: 2023/04/04 00:41:05 by akaraban         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
 
 # define RED     "\033[1;31m"
 # define GREEN   "\x1b[32m"
