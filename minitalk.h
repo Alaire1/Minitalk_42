@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #ifndef MINITALK_H
 # define MINITALK_H
 
@@ -29,5 +30,10 @@
 
 # define BITS_PER_BYTE 8
 # define BIT_MASK 1
+
+int		ft_atoi(char *str);
+void	ft_send_bits(int pid, char byte);
+void	ft_signal_translation(int signal);
+void	display_banner(void);
 
 #endif
