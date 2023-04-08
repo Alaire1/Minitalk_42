@@ -5,53 +5,48 @@
 #                                                     +:+ +:+         +:+      #
 #    By: akaraban <akaraban@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/10 03:02:19 by akaraban          #+#    #+#              #
-#    Updated: 2023/04/06 13:40:44 by akaraban         ###   ########.fr        #
+#    Created: 2023/04/08 18:21:08 by akaraban          #+#    #+#              #
+#    Updated: 2023/04/08 19:18:03 by akaraban         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SERVER = server
 CLIENT = client
 PRINTF = ft_printf/libftprintf.a
-PRINTF_DIR = ft_printf
-
-SRCSERVER = server.c
-SRCCLIENT = client.c
-
-OBJSERVER = $(SRCSERVER:.c=.o)
-OBJCLIENT = $(SRCCLIENT:.c=.o)
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Ift_minitalk.h
+
+SRC_SERVER = server.c
+SRC_CLIENT = client.c
+
+OBJS = server.o client.o
+
+CFLAGS = -Wall -Wextra -Werror
 
 GREEN = \033[0;32m
 RESET = \033[0m
-
-all: $(PRINTF) $(SERVER) $(CLIENT)
+	
+all: $(SERVER) $(CLIENT)
 	@echo "$(GREEN)Success: $(RESET)Server and Client are Created"
 
-$(SERVER): $(OBJSERVER)
-	@$(CC) $(FLAGS) $(PRINTF) -o $@ $(OBJSERVER)
+$(SERVER): $(PRINTF)
+	@$(CC) $(CFLAGS) $(PRINTF) $(SRC_SERVER) -o $(SERVER)
 
-$(CLIENT): $(OBJCLIENT)
-	@$(CC) $(FLAGS) $(PRINTF) -o $@ $(OBJCLIENT)
-
-%.o: %.c
-	@$(CC) $(FLAGS) -c $< -o $@
+$(CLIENT): $(PRINTF)
+	@$(CC) $(CFLAGS) $(PRINTF) $(SRC_CLIENT) -o $(CLIENT)
 
 $(PRINTF):
-	@$(MAKE) -s -C $(PRINTF_DIR)
+	@make -C ft_printf
 
-clean:
-	@make clean -s -C $(PRINTF_DIR)
-	@rm -f $(OBJSERVER) $(OBJCLIENT)
+clean :
+	@make clean -C ft_printf
+	@rm -rf $(OBJS)
 
-fclean:
-	@make fclean -s -C $(PRINTF_DIR)
-	@rm -f $(SERVER) $(CLIENT) $(PRINTF)
+fclean : clean
+	@rm -rf $(PRINTF)
+	@rm -rf $(SERVER) $(CLIENT)
 	@echo "$(GREEN)Success: $(RESET) Server and Client Have Been Cleaned"
-re:
-	fclean all
+
+re : fclean all
 
 .PHONY: all clean fclean re
-
