@@ -21,11 +21,6 @@
 
 # define RED     "\033[1;31m"
 # define GREEN   "\x1b[32m"
-# define YELLOW  "\x1b[33m"
-# define BLUE    "\x1b[34m"
-# define MAGENTA "\x1b[35m"
-# define CYAN    "\x1b[36m"
-# define GREY   "\x1b[90m"
 # define RESET   "\x1b[0m"
 
 # define BITS_PER_BYTE 8
